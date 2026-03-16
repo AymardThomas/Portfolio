@@ -1,0 +1,36 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import mysql.connector
+
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="root",
+    database="vines"
+)
+
+cursor = db.cursor()
+
+cursor.execute("SELECT COUNT(*) FROM devices")
+nb_uc = cursor.fetchone()[0]
+
+cursor.execute("SELECT COUNT(*) FROM monitors")
+nb_moniteurs = cursor.fetchone()[0]
+
+cursor.close()
+
+df = pd.DataFrame({
+    'type': ['Unités centrales', 'Moniteurs'],
+    'nombre': [nb_uc, nb_moniteurs]
+})
+
+plt.figure(figsize=(8, 8))
+plt.style.use('tableau-colorblind10')
+
+plt.pie(df['nombre'], labels=df['type'], autopct='%1.1f%%', startangle=90)
+plt.title("Répartition des types de machine", pad=30)
+plt.axis('equal')
+
+plt.savefig('../images/graphe.png')
+plt.show()
+plt.close()
