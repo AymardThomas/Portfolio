@@ -1,0 +1,93 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+}
+
+div .sidebar{
+    position: absolute;
+    left: 0;
+    top: 25%;
+    width: 3%;
+    height: 50%;
+    background: white;
+    border-radius: 90px;
+    transition: left 1s;
+}
+
+.halfCircle{
+    position: absolute;
+    left: -1.5vw;
+    top: calc(50% - 2vw);
+    width: 3vw;
+    height: 3vw;
+    background: white;
+    border-radius: 90px;
+    transition: left 0.5s;
+}
+.sidebar img{
+    width: 100%;
+}
+.bubble{
+    opacity: 1;
+    position: absolute;
+    width: 3vw;
+    height: 3vw;
+    background: white;
+    border-radius: 90px;
+}
+#scroller{
+    position: absolute;
+    overflow-y: auto;
+    top: calc(50% - 8vw);
+    left: -0vw;
+    width: 16vw;
+    height: 16vw;
+}
+
+#sidebar .hidden{
+    opacity: 0;
+    transition:
+            opacity 0.4s ease
+}
+
+#sidebar > * {
+    opacity: 1;
+    transition:
+            opacity 0.2s ease
+}
+
+#side_color{
+    display: none;
+}
+
+label{
+    position: relative;
+    left: 12.5%;
+    top: 2px
+}
+
+span#color_front{
+    z-index: 0;
+    border-radius: 50%;
+    width: 75%;
+    height: 7.5%;
+    background-color:red;
+    display:inline-block;
+}
+
+.hidden{
+    left: -3%;
+}
+
+.unclickable {
+    pointer-events: none;
+}
+
+.invisible{
+    opacity: 0;
+    animation: opacity 1s;
+}
+
+
